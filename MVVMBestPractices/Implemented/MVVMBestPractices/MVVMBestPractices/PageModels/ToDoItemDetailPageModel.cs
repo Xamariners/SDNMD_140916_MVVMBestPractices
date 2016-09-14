@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MVVMBestPractices.Shared.Enums;
+using MVVMBestPractices.Controls;
 using MVVMBestPractices.Shared.Models;
 using PropertyChanged;
 using Xamarin.Forms;
@@ -13,18 +14,17 @@ namespace MVVMBestPractices.PageModels
     [ImplementPropertyChanged]
     public class ToDoItemDetailPageModel : PageModelBase
     {
-        public ToDoItem SelectedToDoItem { get; set; }
+        public ToDoItem ToDoItem { get; set; }
 
         public override void Init(object initData)
         {
             base.Init(initData);
-
-            SelectedToDoItem = (ToDoItem)initData;
+            
         }
 
-        protected override void SetViewModel()
+        public override void SetViewModel(object InitData)
         {
-           
+            ToDoItem  = InitData as ToDoItem;
         }
 
 

@@ -20,7 +20,7 @@ namespace MVVMBestPractices.PageModels
     public class ToDoListPageModel : PageModelBase
     {
         public List<ToDoItem> ToDoItems { get; set; }
-
+        
         private ToDoItem _selectedToDoItem;
         public ToDoItem SelectedToDoItem
         {
@@ -36,11 +36,10 @@ namespace MVVMBestPractices.PageModels
 
         public override void Init(object initData)
         {
-            SetViewModel();
             base.Init(initData);
         }
 
-        protected override void SetViewModel()
+        public override void SetViewModel(object InitData)
         {
             ToDoItems = FakeToDoData.FakeData;
         }
@@ -66,5 +65,15 @@ namespace MVVMBestPractices.PageModels
                 });
             }
         }
-    }
+
+        public ToDoItem SelectedToDoItem
+        {
+            get {return null;}
+            set
+            {
+                CoreMethods.PushPageModel<ToDoItemDetailPageModel>(value);
+                RaisePropertyChanged();
+            }
+        }
+    } 
 }
