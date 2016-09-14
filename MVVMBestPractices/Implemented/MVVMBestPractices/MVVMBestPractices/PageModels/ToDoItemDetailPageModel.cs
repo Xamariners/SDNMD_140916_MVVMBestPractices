@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MVVMBestPractices.Shared.Enums;
 using MVVMBestPractices.Shared.Models;
 using PropertyChanged;
+using Xamarin.Forms;
 
 namespace MVVMBestPractices.PageModels
 {
@@ -23,6 +25,19 @@ namespace MVVMBestPractices.PageModels
         protected override void SetViewModel()
         {
            
+        }
+
+
+        public Command ToDoStatusUpdateCommand
+        {
+            get
+            {
+                return new Command((statupsUpdateValue) =>
+                {
+                    SelectedToDoItem.ToDoStatus =
+                         (ToDoStatus)Enum.Parse(typeof(ToDoStatus), (string)statupsUpdateValue);
+                });
+            }
         }
     }
 }

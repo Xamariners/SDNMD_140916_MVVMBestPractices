@@ -10,6 +10,8 @@
 
       <valueConverters:ToDoStatusToIconConverter x:Key="ToDoStatusToIconConv" />
 
+      <valueConverters:ToDoStatusToStringConverter x:Key="ToDoStatusToStringConv" />
+
     </ResourceDictionary>
   </ContentPage.Resources>
 
@@ -20,29 +22,32 @@
       <StackLayout  Grid.Row="0" Padding="10,10,10,0" VerticalOptions="Start">
 
         <Label Text="Todo Item Title:" ></Label>
-        <Entry Text="Pick up groceries"
+        <Entry Text="{Binding SelectedToDoItem.Name}"
                  VerticalOptions="Center" />
 
         <Label Text="Todo Item Description:" ></Label>
-        <Editor Text="if not you'll be sleeping in the couch as said by your wife"
+        <Editor Text="{Binding SelectedToDoItem.Details}"
                  VerticalOptions="Center"
                  HeightRequest="110"/>
 
 
-        <!--<Label Text="Current Status:"
+        <Label Text="Current Status:"
                        VerticalOptions="Center" />
 
         <Grid HorizontalOptions="CenterAndExpand">
+          
           <Image Grid.Row="0" Grid.Column="0" 
                  Source="{Binding SelectedToDoItem.ToDoStatus, Converter={StaticResource ToDoStatusToIconConv}}"/>
-          <Label Grid.Row="0" Grid.Column="1" Text="Current Status:"
-                                 VerticalOptions="Center" />
+          
+          <Label Grid.Row="0" Grid.Column="1" FontSize="14"
+                 Text="{Binding SelectedToDoItem.ToDoStatus, Converter={StaticResource ToDoStatusToStringConv}}"
+                 VerticalOptions="Center" />
 
           <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20" ></ColumnDefinition>
+            <ColumnDefinition Width="30" ></ColumnDefinition>
             <ColumnDefinition Width="*" ></ColumnDefinition>
           </Grid.ColumnDefinitions>
-        </Grid>-->
+        </Grid>
 
 
 
@@ -50,9 +55,9 @@
                        VerticalOptions="Center" />
 
         <Grid HorizontalOptions="CenterAndExpand">
-          <Button Grid.Column="0" Text="Open" ></Button>
-          <Button Grid.Column="1" Text="In Progress" ></Button>
-          <Button Grid.Column="2" Text="Closed" ></Button>
+          <Button Grid.Column="0" Text="Open" Command="{Binding ToDoStatusUpdateCommand}" CommandParameter="0" ></Button>
+          <Button Grid.Column="1" Text="In Progress" Command="{Binding ToDoStatusUpdateCommand}" CommandParameter="1"  ></Button>
+          <Button Grid.Column="2" Text="Closed" Command="{Binding ToDoStatusUpdateCommand}" CommandParameter="2" ></Button>
 
           <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" ></ColumnDefinition>

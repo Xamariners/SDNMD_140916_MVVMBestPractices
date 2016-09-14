@@ -28,8 +28,9 @@ namespace MVVMBestPractices.PageModels
             set
             {
                 _selectedToDoItem = value;
+                
                 if (value != null)
-                    CoreMethods.PushPageModel<ToDoItemDetailPageModel>(value);
+                    ToDoItemSelected.Execute(value);
             }
         }
 
@@ -42,6 +43,28 @@ namespace MVVMBestPractices.PageModels
         protected override void SetViewModel()
         {
             ToDoItems = FakeToDoData.FakeData;
+        }
+
+
+        public Command<ToDoItem> ToDoItemSelected
+        {
+            get
+            {
+                return new Command<ToDoItem>(async (todoitem) => {
+                    await CoreMethods.PushPageModel<ToDoItemDetailPageModel>(todoitem);
+                });
+            }
+        }
+
+        public Command AddNewToDoItemCommand
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    await CoreMethods.PushPageModel<AddToDoItemPageModel>();
+                });
+            }
         }
     }
 }

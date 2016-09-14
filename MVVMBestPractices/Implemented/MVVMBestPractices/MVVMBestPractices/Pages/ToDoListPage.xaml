@@ -27,6 +27,7 @@
       <Button Text="+ Add new Todo Item"  
               TextColor="White" 
               BackgroundColor="#0097fb" 
+              Command="{Binding AddNewToDoItemCommand}"
               HeightRequest="50"
               VerticalOptions="End"  />
 
