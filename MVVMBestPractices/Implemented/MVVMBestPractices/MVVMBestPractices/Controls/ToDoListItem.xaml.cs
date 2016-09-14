@@ -12,7 +12,15 @@ namespace MVVMBestPractices.Controls
     {
         public ToDoListItem()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (InvalidOperationException soe)
+            {
+                if (!soe.Message.Contains("MUST"))
+                    throw;
+            }
         }
     }
 }

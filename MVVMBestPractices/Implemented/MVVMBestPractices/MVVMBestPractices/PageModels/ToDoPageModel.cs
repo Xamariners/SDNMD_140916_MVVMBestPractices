@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PropertyChanged;
+using FreshMvvm;
 
 namespace MVVMBestPractices.PageModels
 {
-    [ImplementPropertyChanged]
-    public class TodoItemPageModel : PageModelBase
+    public class ToDoPageModel : PageModelBase
     {
-        public override void Init(object initData)
+        protected override void SetViewModel()
         {
-            base.Init(initData);
-
+            throw new NotImplementedException();
         }
     }
 }

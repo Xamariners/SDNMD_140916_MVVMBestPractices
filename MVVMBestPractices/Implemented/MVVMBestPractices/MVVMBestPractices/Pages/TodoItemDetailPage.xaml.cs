@@ -8,9 +8,9 @@ using Xamarin.Forms;
 
 namespace MVVMBestPractices.Pages
 {
-    public partial class TodoItemDetailPage : ContentPage
+    public partial class ToDoItemDetailPage : ContentPage
     {
-        public TodoItemDetailPage()
+        public ToDoItemDetailPage()
         {
             InitializeComponent();
         }

@@ -1,21 +1,34 @@
 ﻿using System;
+using FreshMvvm;
+using MVVMBestPractices.PageModels;
+using SpecFlow.XForms;
 using TechTalk.SpecFlow;
+using SpecFlow.XFormsDependency;
+using SpecFlow.XFormsExtensions;
+using SpecFlow.XFormsNavigation;
 
 namespace MVVMBestPractices.UnitTest
 {
     [Binding]
-    public class ToDoSteps
+    public class ToDoSteps : TestStepBase
     {
+        public ToDoSteps(ScenarioContext scenarioContext)
+            : base(scenarioContext)
+        {
+            // you need to instantiate your steps by passing the scenarioContext to the base
+        }
+
         [Given(@"I am on the ToDoList Page")]
         public void GivenIAmOnTheToDoListPage()
         {
-            ScenarioContext.Current.Pending();
+            Resolver.Instance.Resolve<INavigationService>().PushAsync<ToDoListPageModel>();
+            Resolver.Instance.Resolve<INavigationService>().CurrentViewModelType.ShouldEqualType<ToDoListPageModel>();
         }
         
         [Then(@"I should see (.*) items")]
-        public void ThenIShouldSeeItems(int p0)
+        public void ThenIShouldSeeItems(int amount)
         {
-            ScenarioContext.Current.Pending();
+            GetCurrentViewModel<ToDoListPageModel>().ToDoItems.Count.ShouldEqual(amount);
         }
     }
 }

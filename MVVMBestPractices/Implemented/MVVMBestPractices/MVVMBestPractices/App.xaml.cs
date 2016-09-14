@@ -11,7 +11,15 @@ namespace MVVMBestPractices
     {
         public App()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (InvalidOperationException soe)
+            {
+                if (!soe.Message.Contains("MUST"))
+                    throw;
+            }
 
             MainPage =
                 new NavigationPage(

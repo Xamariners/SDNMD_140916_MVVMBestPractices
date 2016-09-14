@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MVVMBestPractices"
-             x:Class="MVVMBestPractices.Pages.TodoItemDetailPage"
+             x:Class="MVVMBestPractices.Pages.ToDoItemDetailPage"
              Title="Edit Todo item">
   <ContentPage.Padding>
     <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
