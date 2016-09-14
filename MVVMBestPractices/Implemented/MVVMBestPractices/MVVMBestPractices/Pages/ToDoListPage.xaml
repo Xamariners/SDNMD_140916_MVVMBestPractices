@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MVVMBestPractices"
+             xmlns:controls="clr-namespace:MVVMBestPractices.Controls;assembly=MVVMBestPractices"
+             x:Class="MVVMBestPractices.Pages.ToDoListPage"
+             Title="The TODO list">
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
+  </ContentPage.Padding>
+
+  <ContentPage.Content>
+
+    <StackLayout Padding="0,10,0,0">
+
+      <Label Text="Welcome to The TODO list"
+               VerticalOptions="Start"
+               HorizontalOptions="Center" />
+
+      <ListView ItemsSource="{Binding ToDoItems}">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <controls:ToDoListItem HeightRequest="50" />
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+
+      <Button Text="+ Add new Todo Item"  BackgroundColor="#0097fb" HeightRequest="50"
+              VerticalOptions="End"  />
+
+    </StackLayout>
+    
+  </ContentPage.Content>
+</ContentPage>

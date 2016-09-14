@@ -41,23 +41,23 @@
     <Compile Include="Controls\ToDoListItem.xaml.cs">
       <DependentUpon>ToDoListItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\TodoItemDetailViewModel.cs" />
-    <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="PageModels\PageModelBase.cs" />
+    <Compile Include="PageModels\TodoItemPageModel.cs" />
+    <Compile Include="PageModels\ToDoListPageModel.cs" />
     <Compile Include="Pages\TodoItemDetailPage.xaml.cs">
       <DependentUpon>TodoItemDetailPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\HomePage.xaml.cs">
-      <DependentUpon>HomePage.xaml</DependentUpon>
+    <Compile Include="Pages\ToDoListPage.xaml.cs">
+      <DependentUpon>ToDoListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\HomePage.xaml">
-      <SubType>Designer</SubType>
+    <EmbeddedResource Include="Pages\ToDoListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="App.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -69,6 +69,10 @@
     <Reference Include="FreshMvvm, Version=1.0.6071.17008, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FreshMvvm.2.2.0\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\FreshMvvm.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="PropertyChanged, Version=1.51.3.0, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PropertyChanged.Fody.1.51.3\lib\portable-net4+sl4+wp8+win8+wpa81+MonoAndroid16+MonoTouch40\PropertyChanged.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="SpecFlow.Xamarin.Forms.IViewModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SpecFlow.Xamarin.Forms.IViewModel.0.1\lib\portable-net45+netcore45+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac\SpecFlow.Xamarin.Forms.IViewModel.dll</HintPath>
@@ -94,8 +98,20 @@
   <ItemGroup>
     <EmbeddedResource Include="Controls\ToDoListItem.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Lib\MVVMBestPractices.Data.Fake\MVVMBestPractices.Data.Fake.csproj">
+      <Project>{3c7b4836-912e-4b0e-a087-1e25b6674160}</Project>
+      <Name>MVVMBestPractices.Data.Fake</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\MVVMBestPractices.Shared\MVVMBestPractices.Shared.csproj">
+      <Project>{5139de10-ea8a-408b-98c5-8af7cc79a3c5}</Project>
+      <Name>MVVMBestPractices.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\TodoItemDetailPage.xaml">
@@ -110,7 +126,9 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets'))" />
   </Target>
+  <Import Project="..\..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

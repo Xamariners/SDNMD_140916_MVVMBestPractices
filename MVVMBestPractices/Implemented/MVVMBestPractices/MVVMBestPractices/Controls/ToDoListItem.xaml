@@ -4,8 +4,8 @@
              x:Class="MVVMBestPractices.Controls.ToDoListItem" 
              Padding="10, 0, 10, 0">
   
-  <Label Grid.Row="0" Grid.Column="0" Text="Pick up groceries" FontSize="15" LineBreakMode="TailTruncation" />
-  <Label Grid.Row="1" Grid.Column="0" Text="if not you'll be sleeping in the couch as said by your wife" FontSize="9" />
+  <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" FontSize="15" LineBreakMode="TailTruncation" />
+  <Label Grid.Row="1" Grid.Column="0" Text="{Binding Details}" FontSize="9" />
   
   <Button Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Text="-" />
   

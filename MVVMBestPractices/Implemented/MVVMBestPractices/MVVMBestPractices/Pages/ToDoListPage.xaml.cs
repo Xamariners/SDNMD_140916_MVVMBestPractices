@@ -7,9 +7,9 @@ using Xamarin.Forms;
 
 namespace MVVMBestPractices.Pages
 {
-    public partial class HomePage : ContentPage
+    public partial class ToDoListPage : ContentPage
     {
-        public HomePage()
+        public ToDoListPage()
         {
             InitializeComponent();
         }

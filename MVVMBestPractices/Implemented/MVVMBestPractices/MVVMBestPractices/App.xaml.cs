@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using MVVMBestPractices.PageModels;
 using Xamarin.Forms;
 
 namespace MVVMBestPractices
@@ -13,7 +13,10 @@ namespace MVVMBestPractices
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Pages.HomePage());
+            MainPage =
+                new NavigationPage(
+                    FreshMvvm.FreshPageModelResolver.ResolvePageModel
+                    <ToDoListPageModel>());
         }
 
         protected override void OnStart()
