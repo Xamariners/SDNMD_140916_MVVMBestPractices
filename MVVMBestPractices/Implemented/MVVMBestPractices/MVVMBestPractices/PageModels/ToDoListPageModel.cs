@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using MVVMBestPractices.Annotations;
 using MVVMBestPractices.Controls;
 using MVVMBestPractices.Data.Fake;
+using MVVMBestPractices.Services;
 using MVVMBestPractices.Shared.Models;
 using PropertyChanged;
 using SpecFlow.XForms.IViewModel;
@@ -22,6 +23,14 @@ namespace MVVMBestPractices.PageModels
         public List<ToDoItem> ToDoItems { get; set; }
         
         private ToDoItem _selectedToDoItem;
+
+        private readonly IDataService _dataService;
+
+        public ToDoListPageModel(IDataService dataService)
+        {
+            _dataService = dataService;
+        }
+
         public ToDoItem SelectedToDoItem
         {
             get { return _selectedToDoItem; }
@@ -38,19 +47,10 @@ namespace MVVMBestPractices.PageModels
             base.Init(initData);
         }
 
-        public override void SetViewModel(object InitData)
+        public async override void SetViewModel(object InitData)
         {
-            ToDoItems = FakeToDoData.FakeData;
-        }
-
-        public ToDoItem SelectedToDoItem
-        {
-            get {return null;}
-            set
-            {
-                CoreMethods.PushPageModel<ToDoItemDetailPageModel>(value);
-                RaisePropertyChanged();
-            }
+            
+            ToDoItems = await FreshMvvm.FreshIOC.Container.Resolve<IDataService>().GetToDoItems();
         }
     } 
 }

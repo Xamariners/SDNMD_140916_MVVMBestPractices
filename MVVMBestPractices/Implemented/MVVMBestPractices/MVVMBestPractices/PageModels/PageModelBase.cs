@@ -25,8 +25,9 @@ namespace MVVMBestPractices.PageModels
 
         public virtual void Init(object initData)
         {
-            SetViewModel(initData);
             base.Init(initData);
+            SetViewModel(initData);
+            
         }
     }
 }

@@ -15016,8 +15016,9 @@
   },
   "libraries": {
     "FreshMvvm/2.2.0": {
-      "sha512": "v1hEVyDKyZE+IvYkztSgHqDOdAdADfmYreBnkW4Xrf76Y1P63Mkvmo3sibllUHlpVnIkUtGj4eGQv8AW+afFDQ==",
+      "sha512": "4aI4zuQ1tifravEeaAq6kkO61G/SC6YlUtPsjrp8RP8bHaAVGOWcKGaUHGqzpqH5F5W5XdRZZaikuvpeXBdm8Q==",
       "type": "package",
+      "path": "FreshMvvm/2.2.0",
       "files": [
         "FreshMvvm.2.2.0.nupkg.sha512",
         "FreshMvvm.nuspec",
@@ -21031,8 +21032,9 @@
       ]
     },
     "Xamarin.Forms/2.3.2.127": {
-      "sha512": "NYH2p6Z2QGrRZpRXSiLqtapqlsx11pkViEIjDUQFDvsMCZbvsipDXOWjV9sXTrruXTdkNZ24Nsw0lEG0jVRMjA==",
+      "sha512": "5f//6Ot/zh9Rg9QksTKTA8iH5h+9GMLfA0M6aS9dVRq26ChIwmZlBCk6EETGQVSDx+yHZ5h/WHYfnwU08IriMg==",
       "type": "package",
+      "path": "Xamarin.Forms/2.3.2.127",
       "files": [
         "Xamarin.Forms.2.3.2.127.nupkg.sha512",
         "Xamarin.Forms.nuspec",

@@ -10,14 +10,16 @@ namespace MVVMBestPractices.PageModels
     [ImplementPropertyChanged]
     public class AddToDoItemPageModel : PageModelBase
     {
+        public override void SetViewModel(object initData)
+        {
+          
+        }
+
         public override void Init(object initData)
         {
             base.Init(initData);
         }
 
-        protected override void SetViewModel()
-        {
-            
-        }
+    
     }
 }

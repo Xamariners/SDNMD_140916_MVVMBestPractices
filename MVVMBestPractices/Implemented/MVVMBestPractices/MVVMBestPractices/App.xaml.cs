@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using FreshMvvm;
 using MVVMBestPractices.PageModels;
+using MVVMBestPractices.Services;
 using Xamarin.Forms;
 
 namespace MVVMBestPractices
@@ -12,12 +13,17 @@ namespace MVVMBestPractices
     {
         public App()
         {
-
+            InitContainer();
             var toDoList = FreshMvvm.FreshPageModelResolver.ResolvePageModel<ToDoListPageModel>();
             var navContainer = new FreshMvvm.FreshNavigationContainer(toDoList);
             MainPage = navContainer;
         }
 
+        private void InitContainer()
+        {
+            FreshIOC.Container.Register<IDataService, FakeDataService>();
+        }
+         
         protected override void OnStart()
         {
             // Handle when your app starts
