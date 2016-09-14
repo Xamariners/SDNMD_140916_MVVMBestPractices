@@ -13,7 +13,7 @@ namespace MVVMBestPractices
         {
             InitializeComponent();
 
-            MainPage = new MVVMBestPractices.Views.HomeView();
+            MainPage = new NavigationPage(new Pages.HomePage());
         }
 
         protected override void OnStart()

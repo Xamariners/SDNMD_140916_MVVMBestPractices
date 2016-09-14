@@ -41,14 +41,18 @@
     <Compile Include="Controls\ToDoListItem.xaml.cs">
       <DependentUpon>ToDoListItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\TodoItemDetailViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
-    <Compile Include="Views\HomeView.xaml.cs">
-      <DependentUpon>HomeView.xaml</DependentUpon>
+    <Compile Include="Pages\TodoItemDetailPage.xaml.cs">
+      <DependentUpon>TodoItemDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\HomeView.xaml">
+    <EmbeddedResource Include="Pages\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -89,6 +93,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controls\ToDoListItem.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\TodoItemDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

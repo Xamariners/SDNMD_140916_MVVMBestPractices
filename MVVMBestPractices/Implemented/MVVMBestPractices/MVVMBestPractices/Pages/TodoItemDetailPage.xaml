@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MVVMBestPractices"
+             x:Class="MVVMBestPractices.Pages.TodoItemDetailPage"
+             Title="Edit Todo item">
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
+  </ContentPage.Padding>
+
+  <ContentPage.Content>
+    
+  <Grid Padding="0,10,0,0">
+
+    <StackLayout  Grid.Row="0" Padding="10,10,10,0" VerticalOptions="Start">
+      
+      <Label Text="Todo Item Title:" ></Label>
+      <Entry Text="Pick up groceries" 
+               VerticalOptions="Center" />
+
+      <Label Text="Todo Item Description:" ></Label>
+      <Editor Text="if not you'll be sleeping in the couch as said by your wife"
+               VerticalOptions="Center"
+               HeightRequest="110"/>
+      
+      <Label Text="Update Status:"
+                     VerticalOptions="Center" />
+      
+      <Grid HorizontalOptions="CenterAndExpand">
+        <Button Grid.Column="0" Text="Open" ></Button>
+        <Button Grid.Column="1" Text="In Progress" ></Button>
+        <Button Grid.Column="2" Text="Closed" ></Button>
+        
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" ></ColumnDefinition>
+          <ColumnDefinition Width="*" ></ColumnDefinition>
+          <ColumnDefinition Width="*" ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+      </Grid>
+      
+    </StackLayout>
+    
+    <Button Grid.Row="1" Text="Delete Todo Item" HeightRequest="50"
+            BackgroundColor="#ff8080"
+            VerticalOptions="End"  />
+    
+    <Button Grid.Row="2" Text="Save Todo Item" HeightRequest="50" 
+            BackgroundColor="#0097fb"
+            VerticalOptions="End"  />
+
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" ></RowDefinition>
+      <RowDefinition Height="50" ></RowDefinition>
+      <RowDefinition Height="50" ></RowDefinition>
+    </Grid.RowDefinitions>
+  </Grid>
+    
+  </ContentPage.Content>
+</ContentPage>

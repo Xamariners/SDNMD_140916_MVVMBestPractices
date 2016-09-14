@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace MVVMBestPractices.Views
+namespace MVVMBestPractices.Pages
 {
-    public partial class HomeView : ContentPage
+    public partial class HomePage : ContentPage
     {
-        public HomeView()
+        public HomePage()
         {
             InitializeComponent();
         }
