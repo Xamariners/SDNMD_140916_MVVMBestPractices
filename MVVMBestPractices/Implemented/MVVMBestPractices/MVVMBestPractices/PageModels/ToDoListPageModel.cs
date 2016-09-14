@@ -20,7 +20,19 @@ namespace MVVMBestPractices.PageModels
     public class ToDoListPageModel : PageModelBase
     {
         public List<ToDoItem> ToDoItems { get; set; }
-       
+
+        private ToDoItem _selectedToDoItem;
+        public ToDoItem SelectedToDoItem
+        {
+            get { return _selectedToDoItem; }
+            set
+            {
+                _selectedToDoItem = value;
+                if (value != null)
+                    CoreMethods.PushPageModel<ToDoItemDetailPageModel>(value);
+            }
+        }
+
         public override void Init(object initData)
         {
             SetViewModel();

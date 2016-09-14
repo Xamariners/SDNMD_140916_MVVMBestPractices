@@ -14,7 +14,7 @@
                VerticalOptions="Start"
                HorizontalOptions="Center" />
 
-      <ListView ItemsSource="{Binding ToDoItems}">
+      <ListView ItemsSource="{Binding ToDoItems}" SelectedItem="{Binding SelectedToDoItem, Mode=TwoWay}">
         <ListView.ItemTemplate>
           <DataTemplate>
             <ViewCell>

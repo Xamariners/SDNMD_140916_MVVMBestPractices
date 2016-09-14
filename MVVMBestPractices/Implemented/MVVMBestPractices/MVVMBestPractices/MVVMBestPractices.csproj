@@ -41,9 +41,13 @@
     <Compile Include="Controls\ToDoListItem.xaml.cs">
       <DependentUpon>ToDoListItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageModels\AddToDoItemPageModel.cs" />
     <Compile Include="PageModels\PageModelBase.cs" />
     <Compile Include="PageModels\ToDoItemDetailPageModel.cs" />
     <Compile Include="PageModels\ToDoListPageModel.cs" />
+    <Compile Include="Pages\AddToDoItemPage.xaml.cs">
+      <DependentUpon>AddToDoItemPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ToDoItemDetailPage.xaml.cs">
       <DependentUpon>ToDoItemDetailPage.xaml</DependentUpon>
     </Compile>
@@ -119,6 +123,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\ToDoItemDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\AddToDoItemPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
