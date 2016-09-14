@@ -11,7 +11,15 @@ namespace MVVMBestPractices.Pages
     {
         public ToDoListPage()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (InvalidOperationException soe)
+            {
+                if (!soe.Message.Contains("MUST"))
+                    throw;
+            }
         }
     }
 }

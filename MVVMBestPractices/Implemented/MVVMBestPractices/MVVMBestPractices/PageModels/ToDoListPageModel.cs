@@ -20,11 +20,15 @@ namespace MVVMBestPractices.PageModels
     public class ToDoListPageModel : PageModelBase
     {
         public List<ToDoItem> ToDoItems { get; set; }
-
+       
         public override void Init(object initData)
         {
+            SetViewModel();
             base.Init(initData);
+        }
 
+        protected override void SetViewModel()
+        {
             ToDoItems = FakeToDoData.FakeData;
         }
     }

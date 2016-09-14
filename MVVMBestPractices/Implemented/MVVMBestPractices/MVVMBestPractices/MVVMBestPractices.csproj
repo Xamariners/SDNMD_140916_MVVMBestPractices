@@ -43,6 +43,7 @@
     </Compile>
     <Compile Include="PageModels\PageModelBase.cs" />
     <Compile Include="PageModels\ToDoListPageModel.cs" />
+    <Compile Include="PageModels\ToDoPageModel.cs" />
     <Compile Include="Pages\ToDoListPage.xaml.cs">
       <DependentUpon>ToDoListPage.xaml</DependentUpon>
     </Compile>
