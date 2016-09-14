@@ -11,20 +11,10 @@ namespace MVVMBestPractices
     {
         public App()
         {
-            try
-            {
-                InitializeComponent();
-            }
-            catch (InvalidOperationException soe)
-            {
-                if (!soe.Message.Contains("MUST"))
-                    throw;
-            }
 
-            MainPage =
-                new NavigationPage(
-                    FreshMvvm.FreshPageModelResolver.ResolvePageModel
-                    <ToDoListPageModel>());
+            var toDoList = FreshMvvm.FreshPageModelResolver.ResolvePageModel<ToDoListPageModel>();
+            var navContainer = new FreshMvvm.FreshNavigationContainer(toDoList);
+            MainPage = navContainer;
         }
 
         protected override void OnStart()

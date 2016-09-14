@@ -16,11 +16,17 @@ namespace MVVMBestPractices.PageModels
     {
         public INavigation Navigation { get; set; }
 
+        public abstract void SetViewModel(object initData);
+
         public PageModelBase()
         {
-            SetViewModel();
+            SetViewModel(null);
         }
 
-        protected abstract void SetViewModel();
+        public virtual void Init(object initData)
+        {
+            SetViewModel(initData);
+            base.Init(initData);
+        }
     }
 }

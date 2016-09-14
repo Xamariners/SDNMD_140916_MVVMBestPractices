@@ -28,6 +28,7 @@ namespace MVVMBestPractices.UnitTest
         [Then(@"I should see (.*) items")]
         public void ThenIShouldSeeItems(int amount)
         {
+            //GetCurrentViewModel<ToDoListPageModel>().SetViewModel(null);
             GetCurrentViewModel<ToDoListPageModel>().ToDoItems.Count.ShouldEqual(amount);
         }
     }
