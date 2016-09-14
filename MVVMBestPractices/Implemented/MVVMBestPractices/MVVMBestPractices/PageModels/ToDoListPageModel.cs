@@ -22,25 +22,13 @@ namespace MVVMBestPractices.PageModels
     {
         public List<ToDoItem> ToDoItems { get; set; }
         
-        private ToDoItem _selectedToDoItem;
-
         private readonly IDataService _dataService;
 
         public ToDoListPageModel(IDataService dataService)
         {
             _dataService = dataService;
         }
-
-        public ToDoItem SelectedToDoItem
-        {
-            get { return _selectedToDoItem; }
-            set
-            {
-                _selectedToDoItem = value;
-                if (value != null)
-                    CoreMethods.PushPageModel<ToDoItemDetailPageModel>(value);
-            }
-        }
+        
 
         public override void Init(object initData)
         {
@@ -49,8 +37,43 @@ namespace MVVMBestPractices.PageModels
 
         public async override void SetViewModel(object InitData)
         {
-            
             ToDoItems = await FreshMvvm.FreshIOC.Container.Resolve<IDataService>().GetToDoItems();
+        }
+
+        private ToDoItem _selectedToDoItem;
+        public ToDoItem SelectedToDoItem
+        {
+            get { return _selectedToDoItem; }
+            set
+            {
+                _selectedToDoItem = value;
+
+                if (value != null)
+                    ToDoItemSelectedCommand.Execute(value);
+            }
+        }
+
+
+        public Command<ToDoItem> ToDoItemSelectedCommand
+        { 
+            get
+            {
+                return new Command<ToDoItem>(async (todoitem) =>
+                {
+                    await CoreMethods.PushPageModel<ToDoItemDetailPageModel>(todoitem);
+                });
+            }
+        }
+
+        public Command AddNewToDoItemCommand
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    await CoreMethods.PushPageModel<AddToDoItemPageModel>();
+                });
+            }
         }
     } 
 }

@@ -23,7 +23,7 @@ namespace MVVMBestPractices.PageModels
             SetViewModel(null);
         }
 
-        public virtual void Init(object initData)
+        public override void Init(object initData)
         {
             base.Init(initData);
             SetViewModel(initData);

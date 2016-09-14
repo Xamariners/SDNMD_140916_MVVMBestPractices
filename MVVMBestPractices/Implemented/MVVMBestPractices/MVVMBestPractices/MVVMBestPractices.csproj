@@ -60,6 +60,7 @@
     <Compile Include="Services\FakeDataService.cs" />
     <Compile Include="Services\IDataService.cs" />
     <Compile Include="ValueConverters\ToDoStatusToIconConverter.cs" />
+    <Compile Include="ValueConverters\ToDoStatusToStringConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\ToDoListPage.xaml">
