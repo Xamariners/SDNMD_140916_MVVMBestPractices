@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
+using MVVMBestPractices.Annotations;
+using MVVMBestPractices.Controls;
+using MVVMBestPractices.Data.Fake;
+using MVVMBestPractices.Shared.Models;
+using PropertyChanged;
+using SpecFlow.XForms.IViewModel;
+using Xamarin.Forms;
+
+namespace MVVMBestPractices.PageModels
+{
+    [ImplementPropertyChanged]
+    public class ToDoListPageModel : PageModelBase
+    {
+        public List<ToDoItem> ToDoItems { get; set; }
+
+        public override void Init(object initData)
+        {
+            base.Init(initData);
+
+            ToDoItems = FakeToDoData.FakeData;
+        }
+    }
+}
