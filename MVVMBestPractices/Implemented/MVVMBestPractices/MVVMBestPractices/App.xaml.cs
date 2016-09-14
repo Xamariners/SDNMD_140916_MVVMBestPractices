@@ -21,7 +21,10 @@ namespace MVVMBestPractices
                     throw;
             }
 
-            MainPage = FreshMvvm.FreshPageModelResolver.ResolvePageModel<ToDoListPageModel>();
+            MainPage =
+                new NavigationPage(
+                    FreshMvvm.FreshPageModelResolver.ResolvePageModel
+                    <ToDoListPageModel>());
         }
 
         protected override void OnStart()
