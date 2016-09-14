@@ -13,6 +13,7 @@ namespace MVVMBestPractices.Data.Fake
     /// </summary>
     public static class FakeToDoData
     {
+        private static List<ToDoItem> _fakeData;
         /// <summary>
         ///     Gets the fake data.
         /// </summary>
@@ -21,7 +22,9 @@ namespace MVVMBestPractices.Data.Fake
         {
             get
             {
-                return new List<ToDoItem>()
+                if (_fakeData == null)
+                {
+                    _fakeData = new List<ToDoItem>()
                 {
 
                     new ToDoItem
@@ -770,6 +773,14 @@ namespace MVVMBestPractices.Data.Fake
                         ToDoStatus = ToDoStatus.InProgress
                     },
                 };
+                }
+
+                return _fakeData;
+            }
+
+            set
+            {
+                _fakeData = value;
             }
         }
     }
