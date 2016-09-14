@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FreshMvvm;
 using MVVMBestPractices.PageModels;
 using Xamarin.Forms;
 
@@ -22,7 +23,7 @@ namespace MVVMBestPractices
             }
 
             MainPage =
-                new NavigationPage(
+                new FreshNavigationContainer(
                     FreshMvvm.FreshPageModelResolver.ResolvePageModel
                     <ToDoListPageModel>());
         }
