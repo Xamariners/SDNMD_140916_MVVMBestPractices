@@ -5,13 +5,10 @@
              xmlns:controls="clr-namespace:MVVMBestPractices.Controls;assembly=MVVMBestPractices"
              x:Class="MVVMBestPractices.Pages.ToDoListPage"
              Title="The TODO list">
-  <ContentPage.Padding>
-    <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
-  </ContentPage.Padding>
 
   <ContentPage.Content>
 
-    <StackLayout Padding="0,10,0,0">
+    <StackLayout Padding="5,10,5,5">
 
       <Label Text="Welcome to The TODO list"
                VerticalOptions="Start"
@@ -21,13 +18,16 @@
         <ListView.ItemTemplate>
           <DataTemplate>
             <ViewCell>
-              <controls:ToDoListItem HeightRequest="50" />
+              <controls:ToDoListItem />
             </ViewCell>
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
 
-      <Button Text="+ Add new Todo Item"  BackgroundColor="#0097fb" HeightRequest="50"
+      <Button Text="+ Add new Todo Item"  
+              TextColor="White" 
+              BackgroundColor="#0097fb" 
+              HeightRequest="50"
               VerticalOptions="End"  />
 
     </StackLayout>

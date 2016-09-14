@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FreshMvvm;
 using MVVMBestPractices.PageModels;
 using Xamarin.Forms;
 
