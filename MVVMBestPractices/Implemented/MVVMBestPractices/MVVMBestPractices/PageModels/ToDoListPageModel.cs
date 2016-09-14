@@ -49,8 +49,11 @@ namespace MVVMBestPractices.PageModels
         {
             get
             {
-                return new Command<ToDoItem>(async (todoitem) => {
-                    await CoreMethods.PushPageModel<ToDoItemDetailPageModel>(todoitem);
+                return new Command<ToDoItem>(async (todoitem) =>
+                {
+                    await
+                        CoreMethods
+                            .PushPageModel<ToDoItemDetailPageModel>(todoitem);
                 });
             }
         }
@@ -63,16 +66,6 @@ namespace MVVMBestPractices.PageModels
                 {
                     await CoreMethods.PushPageModel<AddToDoItemPageModel>();
                 });
-            }
-        }
-
-        public ToDoItem SelectedToDoItem
-        {
-            get {return null;}
-            set
-            {
-                CoreMethods.PushPageModel<ToDoItemDetailPageModel>(value);
-                RaisePropertyChanged();
             }
         }
     } 

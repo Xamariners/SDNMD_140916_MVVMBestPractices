@@ -18,14 +18,14 @@ namespace MVVMBestPractices.PageModels
 
         public string ToDoDescription { get; set; }
 
+        public override void SetViewModel(object initData)
+        {
+
+        }
+
         public override void Init(object initData)
         {
             base.Init(initData);
-        }
-
-        protected override void SetViewModel()
-        {
-            
         }
 
         /// <summary>

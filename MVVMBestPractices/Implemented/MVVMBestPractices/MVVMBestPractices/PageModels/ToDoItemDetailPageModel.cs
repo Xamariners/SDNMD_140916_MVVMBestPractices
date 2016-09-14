@@ -19,12 +19,13 @@ namespace MVVMBestPractices.PageModels
         public override void Init(object initData)
         {
             base.Init(initData);
-            
+
+            ToDoItem = initData as ToDoItem;
         }
 
         public override void SetViewModel(object InitData)
         {
-            ToDoItem  = InitData as ToDoItem;
+
         }
 
 
@@ -34,7 +35,7 @@ namespace MVVMBestPractices.PageModels
             {
                 return new Command((statupsUpdateValue) =>
                 {
-                    SelectedToDoItem.ToDoStatus =
+                    ToDoItem.ToDoStatus =
                          (ToDoStatus)Enum.Parse(typeof(ToDoStatus), (string)statupsUpdateValue);
                 });
             }
